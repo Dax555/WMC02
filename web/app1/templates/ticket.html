@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Quidditch Match Ticket Booking</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'ticket.css' %}">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <style>
+     header {
+    background-image: url('{% static "ticket.jpg" %}');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 650px;
+    background-position:center;
+    margin-top: -7rem;
+}
+    </style>
+</head>
+<body>
+  <section>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light color">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'home' %}"><img src="/static/quid.jpeg" alt="" width="80" height="40" class="navbar-logo"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Teams
+                      </a>
+
+                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{% url 'gryffindor_team' %}">GRYFFINDOR</a></li>
+
+                       <li><a class="dropdown-item" href="{% url 'slytherin_team' %}">SLYTHERIN</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url 'hufflepuff_team' %}">HUFFLEPUFF</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ravenclaw_team' %}">RAVENCLAW</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'schedule' %}">Schedule</a>
+                    </li>
+
+
+
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Book Tickets
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{% url 'ticket' %}">Single Game</a></li>
+                        <li><a class="dropdown-item" href="#">Group Ticket</a></li>
+
+                      </ul>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'store' %}">Store</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Other
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                        <li><a class="dropdown-item" href="#">Standings</a></li>
+                        <li><hr class="dropdown-divider"></li>
+
+                      </ul>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login/Register</a>
+                    </li>
+
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'register_team' %}">Register Your Team</a>
+                  </li>
+
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </section>
+    <header class="bg-dark py-5">
+
+    </header>
+    <div class="container1">
+<!--        <img src="{% static 'quidditch-team-generic-qtta-illustrated.jpg' %}" alt="Header Image">-->
+        <h1>Quidditch Match Ticket Booking</h1>
+        <form id="bookingForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="match">Select Match:</label>
+            <select id="match" required>
+                <option value="">Select a match</option>
+                <option value="match1">Match 1</option>
+                <option value="match2">Match 2</option>
+                <!-- Add more match options here -->
+            </select>
+
+            <label for="numTickets">Number of Tickets:</label>
+            <input type="number" id="numTickets" min="1" required>
+
+            <button type="submit">Proceed to Payment</button>
+        </form>
+
+        <div id="paymentForm" style="display: none;">
+            <h2>Payment Details</h2>
+            <p>Total Amount: $<span id="totalAmount"></span></p>
+            <div id="checkoutForm" >
+          
+                
+                <div class="rowform">
+                  <div class="col-50form">
+                    <h3>Billing Address</h3>
+                    <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+                    <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                    <input type="text" id="femail" name="email" placeholder="john@example.com">
+                    <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                    <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+                    <label for="city"><i class="fa fa-institution"></i> City</label>
+                    <input type="text" id="city" name="city" placeholder="New York">
+        
+                    <div class="rowform">
+                      <div class="col-50form">
+                        <label for="state">State</label>
+                        <input type="text" id="state" name="state" placeholder="NY">
+                      </div>
+                      <div class="col-50form">
+                        <label for="zip">Zip</label>
+                        <input type="text" id="zip" name="zip" placeholder="10001">
+                      </div>
+                    </div>
+                  </div>
+        
+                  <div class="col-50form">
+                    <h3>Payment</h3>
+                    
+                    <label for="cname">Name on Card</label>
+                    <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+                    <label for="ccnum">Credit card number</label>
+                    <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+                    <label for="expmonth">Exp Month</label>
+                    <input type="text" id="expmonth" name="expmonth" placeholder="September">
+                    <div class="rowform">
+                      <div class="col-50form">
+                        <label for="expyear">Exp Year</label>
+                        <input type="text" id="expyear" name="expyear" placeholder="2018">
+                      </div>
+                      <div class="col-50form">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="352">
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              
+                
+                <button type="button" id="confirmPayment" onclick="buy()">Confirm Payment</button>
+              </form>
+            </div>
+          </div>
+      </div>
+
+            <!-- Add payment gateway integration here -->
+            <!-- For example, credit card input fields, PayPal integration, etc. -->
+
+            
+        </div>
+    </div>
+ 
+        <footer>
+      <div class="container end">
+        <footer class="py-5">
+          <div class="row ">
+
+           <div class="col-2">
+                    <h5><a href="{% url 'home' %}" class="nav-link p-0 text-muted home">Home</a></h5></div>
+                    <div class="col-2">
+                      <h5><a href="{% url 'schedule' %}" class="nav-link p-0 text-muted schedule">Schedule</a></h5></div>
+                      <div class="col-2">
+                        <h5><a href="#" class="nav-link p-0 text-muted statistics">Book Tickets</a></h5></div>
+                        <div class="col-2">
+                          <h5><a href="#" class="nav-link p-0 text-muted standings">Standings</a></h5></div>
+                          <div class="col-2">
+                            <h5><a href="{% url 'store' %}" class="nav-link p-0 text-muted history">Store</a></h5></div>
+
+
+
+            <div class="col-4 offset-1">
+              <form>
+
+                <div class="d-flex w-100 gap-2">
+                  <label for="newsletter1" class="visually-hidden">Email address</label>
+                  <input id="newsletter1" type="text" class="form-control" placeholder="Email address" fdprocessedid="prywv9m">
+                  <button class="btn btn-primary" type="button" fdprocessedid="zyuvs5">Subscribe</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+
+        </footer>
+      </div>
+    </footer>
+    <script>
+    document.getElementById("bookingForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Gather form data
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const match = document.getElementById("match").value;
+        const numTickets = parseInt(document.getElementById("numTickets").value);
+
+        // Perform validation
+        if (name === "" || email === "" || match === "" || numTickets <= 0) {
+            alert("Please fill in all the required fields.");
+            return;
+        }
+
+        // Calculate total amount (for demonstration purposes, $10 per ticket)
+        const totalAmount = numTickets * 10;
+        document.getElementById("totalAmount").textContent = totalAmount;
+
+        // Show the payment form and hide the booking form
+        document.getElementById("bookingForm").style.display = "none";
+        document.getElementById("paymentForm").style.display = "block";
+    });
+
+    function buy(){
+        const fname = document.getElementById('fname').value;
+        const femail = document.getElementById('femail').value;
+        const adr = document.getElementById('adr').value;
+        const city = document.getElementById('city').value;
+        const state = document.getElementById('state').value;
+        const zip = document.getElementById('zip').value;
+        const cname = document.getElementById('cname').value;
+        const ccnum = document.getElementById('ccnum').value;
+        const expmonth = document.getElementById('expmonth').value;
+        const expyear = document.getElementById('expyear').value;
+        const cvv = document.getElementById('cvv').value;
+
+        if (fname.trim() == ''  && femail.trim() == '' && adr.trim() == '' && city.trim() == '' && state.trim() == '' && zip.trim() == '' && cname.trim() == '' && ccnum.trim() == '' && expmonth.trim() == '' && expyear.trim() == '' && cvv.trim() == '' ) {
+          // Show alert if all fields are filled
+          alert('All the input fields are mandatory to fill');
+        } else {
+          // You would handle the actual payment processing and confirmation here
+          // For demonstration purposes, we will simply show a success message
+          alert("Payment confirmed! Your tickets are booked successfully.");
+          document.getElementById("bookingForm").reset();
+
+          // Reset the form and go back to booking form
+          document.getElementById("paymentForm").style.display = "none";
+          document.getElementById("bookingForm").style.display = "block";
+          sendemail();
+        }
+    }
+
+    function sendemail() {
+        var imageURL = "https://wallpaperaccess.com/full/635136.jpg";
+
+        Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: "quidditch.hogwarts01@gmail.com",
+            Password: "BFD8814045632D545B09EC951F3E77A486FB",
+            To: document.getElementById("email").value,
+            From: "quidditch.hogwarts01@gmail.com",
+            Subject: "Exclusive Invitation: Quidditch Match Ticket Awaits!",
+            Body: "Attached to this owl, you will find your precious ticket, a key that unlocks a realm of wonder. Guard it well and let its enchantment guide you to the heart of the action.",
+            Attachments: [
+                {
+                    name: "ttg.jpg",
+                    path: imageURL
+                }
+            ]
+        }).then(
+            message => alert(message)
+        );
+    }
+  </script>
+<!--    <script src="{% static 'ticket.js' %}"></script>-->
+</body>
+</html>

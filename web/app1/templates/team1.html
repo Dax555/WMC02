@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="{% static 'team1.css' %}">
+    <link rel="stylesheet" href="{% static './cdn.jsdelivr.net_npm_swiper@10.0.4_swiper-bundle.min.css' %}" />
+</head>
+
+  <body>
+    <section>
+       <nav class="navbar navbar-expand-lg navbar-light bg-light color">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'home' %}"><img src="/static/quid.jpeg" alt="" width="80" height="40" class="navbar-logo"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Teams
+                      </a>
+
+                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{% url 'gryffindor_team' %}">GRYFFINDOR</a></li>
+
+                       <li><a class="dropdown-item" href="{% url 'slytherin_team' %}">SLYTHERIN</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url 'hufflepuff_team' %}">HUFFLEPUFF</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ravenclaw_team' %}">RAVENCLAW</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'schedule' %}">Schedule</a>
+                    </li>
+
+
+
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Book Tickets
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{% url 'ticket' %}">Single Game</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ticket' %}">Group Ticket</a></li>
+
+                      </ul>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'store' %}">Store</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Other
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                        <li><a class="dropdown-item" href="#">Standings</a></li>
+                        <li><hr class="dropdown-divider"></li>
+
+                      </ul>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login/Register</a>
+                    </li>
+
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="createteam.html">Register Your Team</a>
+                  </li>
+
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    </section>
+          <div class="background-container">
+          <div class="slide-container swiper ">
+            <h1>QUIDDITCH TEAM</h1>
+            <h2>GRYFFINDOR</h2>
+
+            <div class="slide-content">
+              <div class="card-wrapper swiper-wrapper">
+                <div class="card swiper-slide">
+                  <div class="image-content">
+                  
+                    <div class="card-image">
+                      
+                      <img src="{% static 'Group 36.png' %}" height="300px">
+                      <div class="info">
+                          <h3>HARRY POTTER</h3>
+                          <p>Seeker|Team Captain</p>
+                        </div>
+                    </div>
+                  </div>
+                  
+                </div>
+                <div class="card swiper-slide">
+                  <div class="image-content">
+                    
+                    <div class="card-image">
+                      
+                      <img src="{% static 'Group 44.png' %}" height="300px" >
+                      <div class="info">
+                        <h3>RON WEASELY</h3>
+                        <p>Keeper</p>
+                      </div>
+                    </div>
+                  </div>
+                 
+                </div> <div class="card swiper-slide">
+                  <div class="image-content">
+                    
+                    <div class="card-image">
+                      <img src="{% static 'Group 45.png' %}" height="300px">
+                      <div class="info">
+                        <h3>GINNY WEASELY</h3>
+                        <p>Chaser</p>
+                      </div>
+                    </div>
+                  </div>
+                 
+                </div> <div class="card swiper-slide">
+                  <div class="image-content">
+                   
+                    <div class="card-image">
+                      <img src="{% static 'Group 46.png' %}" height="300px">
+                      <div class="info">
+                        <h3>KATIE BELL</h3>
+                        <p>Chaser</p>
+                      </div>
+                     
+                    </div>
+                  </div>
+                 
+                </div> <div class="card swiper-slide">
+                  <div class="image-content">
+                    
+                    <div class="card-image">
+                      <img src="{% static 'Group 47 (5).png' %}" height="300px">
+                      <div class="info">
+                        <h3>RITCHIE COOTE</h3>
+                        <p>Beater</p>
+                      </div>
+                     
+                    </div>
+                  </div>
+                 
+                </div> <div class="card swiper-slide">
+                  <div class="image-content">
+                   
+                    <div class="card-image">
+                      <img src="{% static 'Group 49.png' %}" height="300px">
+                      <div class="info">
+                        <h3>DEMELZA ROBBINS</h3>
+                        <p>Chaser</p>
+                      </div>
+                     
+                    </div>
+                  </div>
+                </div> <div class="card swiper-slide">
+                  <div class="image-content">
+                   
+                    <div class="card-image">
+                      <img src="{% static 'Group 50.png' %}" height="300px">
+                      <div class="info">
+                        <h3>JIMMY PEAKES</h3>
+                        <p>Beater</p>
+                      </div>
+                     
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="swiper-button-next swiper-navBtn " ></div>
+            <div class="swiper-button-prev swiper-navBtn" ></div>
+            <div class="swiper-pagination"></div>
+          </div>
+          </div>
+          <footer>
+            <div class="container end">
+              <footer class="py-5">
+                <div class="row ">
+                 
+                  <div class="col-2">
+                    <h5><a href="{% url 'home' %}" class="nav-link p-0 text-muted home">Home</a></h5></div>
+                    <div class="col-2">
+                      <h5><a href="{% url 'schedule' %}" class="nav-link p-0 text-muted schedule">Schedule</a></h5></div>
+                      <div class="col-2">
+                        <h5><a href="{% url 'ticket' %}" class="nav-link p-0 text-muted statistics">Book Tickets</a></h5></div>
+                        <div class="col-2">
+                          <h5><a href="#" class="nav-link p-0 text-muted standings">Standings</a></h5></div>
+                          <div class="col-2">
+                            <h5><a href="{% url 'store' %}" class="nav-link p-0 text-muted history">Store</a></h5></div>
+
+            
+                  <div class="col-4 offset-1">
+                    <form>
+                      
+                      <div class="d-flex w-100 gap-2">
+                        <label for="newsletter1" class="visually-hidden">Email address</label>
+                        <input id="newsletter1" type="text" class="form-control" placeholder="Email address" fdprocessedid="prywv9m">
+                        <button class="btn btn-primary" type="button" fdprocessedid="zyuvs5">Subscribe</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+            
+               
+              </footer>
+            </div>
+          </footer>
+      
+    
+     
+    
+        
+      
+         
+    </body>
+    
+      
+
+<script src="{% static 'cdn.jsdelivr.net_npm_swiper@10.0.4_swiper-bundle.min.js' %}"></script>
+<script src="{% static 'team1.js' %}"></script>
+</html>

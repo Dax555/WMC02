@@ -1,0 +1,198 @@
+header{
+  background-image: url('store.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 700px;
+  background-position: bottom;
+  margin-top: -7rem;
+}
+.my-5 {
+  margin-top: 18rem!important;}
+img{
+    height: 280px!important;
+    
+}
+.navbar-logo{
+    height:40px!important ;
+}
+footer{
+    background-color: #1f1f1f;
+    margin-top: 3rem;
+  }
+  .offset-1 {
+    margin-left: 72.333333%;
+  margin-top: 3%;}
+  @media(max-width:768px){
+    .row{
+      display: flex;
+      flex-direction: column;
+    }
+    .offset-1{
+      margin-left: 50%;
+    }
+    .form-control{
+      width: -3%;
+    }
+  }
+  @media(max-width:566px){
+    .col-2{
+      margin-right: 3%;
+    }
+  }
+.text-muted{
+    color: white!important;
+}
+@media (max-width: 768px){
+.row {
+    display: flex;
+    flex-direction: row;}}
+@media (max-width: 400px){
+    .row-cols-2>* {
+        flex: 0 0 auto;
+        width: 77%;
+}}
+
+.hidden {
+  display: none;
+}
+
+#checkoutForm {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+.rowform {
+display: -ms-flexbox; /* IE10 */
+display: flex;
+-ms-flex-wrap: wrap; /* IE10 */
+flex-wrap: wrap;
+margin: 0 -16px;
+}
+
+.col-25form {
+-ms-flex: 25%; /* IE10 */
+flex: 25%;
+}
+
+.col-50form {
+-ms-flex: 50%; /* IE10 */
+flex: 50%;
+}
+
+.col-75form {
+-ms-flex: 75%; /* IE10 */
+flex: 75%;
+}
+
+.col-25form,
+.col-50form,
+.col-75form {
+padding: 0 16px;
+}
+
+.containerform {
+background-color: #f2f2f2;
+padding: 5px 20px 15px 20px;
+border: 1px solid lightgrey;
+border-radius: 3px;
+}
+
+input[type=text] {
+width: 100%;
+margin-bottom: 20px;
+padding: 12px;
+border: 1px solid #ccc;
+border-radius: 3px;
+}
+
+label {
+margin-bottom: 10px;
+display: block;
+}
+
+.icon-container {
+margin-bottom: 20px;
+padding: 7px 0;
+font-size: 24px;
+}
+
+.btnform {
+background-color: #1f2422;
+color: white;
+padding: 12px;
+margin: 10px 0;
+border: none;
+width: 100%;
+border-radius: 3px;
+cursor: pointer;
+font-size: 17px;
+}
+
+.btnform:hover {
+background-color: #4b4b4b;
+}
+
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+.rowform {
+  flex-direction: column-reverse;
+}
+.col-25form {
+  margin-bottom: 20px;
+}
+}
+#cartItems{
+  font-size: 20px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 75px;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+p{
+  margin-top: 37px;
+  margin-left: 26px;
+  margin-bottom: 1rem;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button{
+  background-color: #1f2422;
+color: white;
+border-radius: 5px;
+border-color: none;
+}
+button:hover {
+  background-color: #ffffff;
+  color: #000;
+  }
+
+.head{
+  display: flex;
+}  
+.svg{
+  height: 35px!important;
+  margin-left: 10px;
+}
+p{
+  font-size: 30px;
+}

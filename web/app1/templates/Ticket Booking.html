@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'ticket.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Register For the Match</h1>
+        <p>Fill the form you will get the Ticket to the match as soon as possible</p>
+        <form action="mail.php" method="POST" onsubmit="sendemail(); return false;">
+            <label for="name"> Full Name:</label>
+            <input type="text" name="name" id="name">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+            <p> </p>
+            <select name="gender" id="gender">
+                <option value="" disabled selected>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <label for="message">Send a Creative slogan for our team and get some amazing prizes</label>
+            <textarea name="message" cols="30" rows="10"></textarea>
+            <input type="submit" value="Send">
+        </form>
+    </div>
+
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendemail() {
+            var imageURL = "https://wallpaperaccess.com/full/635136.jpg";
+
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "quidditch.hogwarts01@gmail.com",
+                Password: "BFD8814045632D545B09EC951F3E77A486FB",
+                To: document.getElementById("email").value,
+                From: "quidditch.hogwarts01@gmail.com",
+                Subject: " Exclusive Invitation: Quidditch Match Ticket Awaits!",
+                Body: "Attached to this owl, you will find your precious ticket, a key that unlocks a realm of wonder. Guard it well and let its enchantment guide you to the heart of the action.",
+                Attachments: [
+                    {
+                        name: "ttg.jpg",
+                        path: imageURL
+                    }
+                ]
+            }).then(
+                message => alert(message)
+            );
+        }
+    </script>
+
+
+  
+</body>
+</html>

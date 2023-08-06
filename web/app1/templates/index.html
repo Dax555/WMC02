@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static './cdn.jsdelivr.net_npm_swiper@10.0.4_swiper-bundle.min.css' %} " />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fasthand&display=swap" rel="stylesheet">
+
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Lalezar:wght@400&display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Lao Muang Don:wght@400&display=swap"
+/>
+</head>
+<body>
+  <section>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light color">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'home' %}"><img src="/static/quid.jpeg" alt="" width="80" height="40" class="navbar-logo"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Teams
+                      </a>
+
+                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{% url 'gryffindor_team' %}">GRYFFINDOR</a></li>
+
+                       <li><a class="dropdown-item" href="{% url 'slytherin_team' %}">SLYTHERIN</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url 'hufflepuff_team' %}">HUFFLEPUFF</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ravenclaw_team' %}">RAVENCLAW</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'schedule' %}">Schedule</a>
+                    </li>
+
+
+
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Book Tickets
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{% url 'ticket' %}">Single Game</a></li>
+                        <li><a class="dropdown-item" href="#">Group Ticket</a></li>
+
+                      </ul>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'store' %}">Store</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Other
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                        <li><a class="dropdown-item" href="#">Standings</a></li>
+                        <li><hr class="dropdown-divider"></li>
+
+                      </ul>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login/Register</a>
+                    </li>
+
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'register_team' %}">Register Your Team</a>
+                  </li>
+
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+    <section>
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item bg1 active">
+        <div class="caption1">
+        <h1>Quidditch Quest</h1></div>
+
+    </div>
+    <div class="carousel-item bg2 ">
+      <div class="caption1">
+        <h1>Quidditch Quest</h1></div>
+
+    </div>
+
+
+    <div class="carousel-item bg3 ">
+      <div class="caption1">
+        <h1>Quidditch Quest</h1></div>
+
+    </div>
+
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+    </section>
+    <section>
+      <div class="news">
+      <div class="row align-items-md-stretch box">
+        <div class="about col-md-7">
+            <div class="video">
+            <video autoplay muted loop id="myVideo"  class="h-100 p-5 text-white bg-dark rounded-3" poster="poster.jpg" controls loop muted autoplay playsinline>
+              <source src="{% static './WhatsApp Video 2023-07-11 at 13.13.53.mp4' %}" type="video/mp4">
+            </video>
+
+
+
+
+          </div>
+
+        </div>
+        <div class="about col-md-5">
+          <div class="h-100 p-4 bg-light border rounded-3 newcontent">
+            <h2>About the Game</h2>
+            <p>Quidditch is a popular wizarding sport played at Hogwarts School of Witchcraft and Wizardry. It involves two teams of seven players who fly on broomsticks and compete to score points by throwing a ball called the Quaffle through the opponent's hoops while also defending against flying Bludgers and pursuing the elusive Golden Snitch for a significant point boost.</p>
+
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <section>
+    <div class="row mb-2 row1">
+      <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative third teams">
+          <div class="col p-4 d-flex flex-column position-static">
+
+            <h3 class="mb-0">GRYFFINDOR</h3>
+            <div class="mb-1 text-body-secondary quotes">"Forti Animo Estote"</div>
+            <p class="card-text mb-auto">Gryffindor values bravery, daring, nerve, and chivalry.Its emblematic animal was the lion. Gryffindor corresponded to the element of fire.</p>
+            <a href="{% url 'gryffindor_team' %}" class="icon-link gap-1 icon-link-hover stretched-link">
+              More about team
+              <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+            </a>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+           <img src="{% static './gryffindor.jpg' %} " width="200" height="350">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative second teams">
+          <div class="col p-4 d-flex flex-column position-static">
+
+            <h3 class="mb-0">SLYTHERIN</h3>
+            <div class="mb-1 text-body-secondary quotes">"It's better to be hated for what you are than to be loved for what you are not"</div>
+            <p class="mb-auto">Slytherin values ambition, leadership, self-preservation, cunning and resourcefulness.Its emblematic animal was the serpent.Slytherin corresponded roughly to the element of water.</p>
+            <a href="{% url 'slytherin_team' %}" class="icon-link gap-1 icon-link-hover stretched-link">
+              More about team
+              <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+            </a>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <img src="{% static './slytherin.jpg' %}" width="200" height="350">
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+    <section>
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative third teams">
+            <div class="col p-4 d-flex flex-column position-static">
+
+              <h3 class="mb-0">HUFFLEPUFF</h3>
+              <div class="mb-1 text-body-secondary quotes">"Life may not be fair, but that doesn't mean I can't be" </div>
+              <p class="card-text mb-auto">Hufflepuff values hard work, dedication, patience, loyalty, and fair play.Its emblematic animal was the badger.Hufflepuff corresponded to the element of earth.</p>
+              <a href="{% url 'hufflepuff_team' %}" class="icon-link gap-1 icon-link-hover stretched-link">
+                More about team
+                <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+              </a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+              <img src="{% static './hufflepuff.jpg' %}" width="200" height="350">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative second teams">
+            <div class="col p-4 d-flex flex-column position-static">
+
+              <h3 class="mb-0">RAVENCLAW</h3>
+              <div class="mb-1 text-body-secondary quotes">"Wit beyond measure is man's greatest treasure"</div>
+              <p class="mb-auto">Ravenclaw values intelligence, knowledge, curiosity, creativity and wit.Its emblematic animal was the eagle.Ravenclaw corresponded to the element of air.</p>
+              <a href="{% url 'ravenclaw_team' %}" class="icon-link gap-1 icon-link-hover stretched-link">
+                More about team
+                <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+              </a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+              <img src="{% static './ravenclaw.jpg' %}" width="200" height="350">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner in" >
+          <div class="carousel-item active">
+            <div class="desktop-1">
+
+
+               <div class="group1">
+
+              <img class="desktop-1-inner" alt="" src="{% static 'gryffindor.jpg' %}">
+
+              <img class="ellipse-icon" alt="" src="{% static 'slytherin.jpg' %}" />
+              <h3 class="gryffindor">TEAM-GRYFFINDOR</h3>
+              <h1 class="friday-jul-7">MONDAY JUL 24</h1>
+
+              <h4 class="pm">8:00 PM</h4>
+              <h2 class="slytherin">TEAM-SLYTHERIN</h2></div>
+
+              <div class="rectangle-div">
+
+              </div>
+
+              <div class="watchbutton"><a href="#"class="mingcutevideo-fill">
+                <img class="group-icon" alt="" src="{% static 'youtube.svg' %}" />
+              </a>
+              <h3 class="watch">WATCH</h3></div>
+            </div>
+
+          </div>
+        <div class="carousel-item">
+            <div class="desktop-1">
+              <div class="group1"> <img class="desktop-1-inner" alt="" src="{% static 'ravenclaw.jpg' %}">
+
+                <img class="ellipse-icon" alt="" src="{% static 'hufflepuff.jpg' %}" />
+
+
+                <h3 class="gryffindor">  TEAM-RAVENCLAW</h3>
+                <h1 class="friday-jul-7">THURSDAY JUL 27</h1>
+
+                <h2 class="pm">8:00 PM</h2>
+                <h2 class="slytherin">  TEAM-HUFFLEPUFF</h2></div>
+                <div class="rectangle-div"></div>
+              <div class="watchbutton">
+
+              <a href="#" class="mingcutevideo-fill">
+                <img class="group-icon" alt="" src="{% static 'youtube.svg' %}" />
+              </a><h3 class="watch">WATCH</h3></div>
+            </div>
+
+          </div>
+          <div class="carousel-item">
+            <div class="desktop-1">
+              <div class="group1"> <img class="desktop-1-inner" alt="" src="{% static 'gryffindor.jpg' %}">
+
+                <img class="ellipse-icon" alt="" src="{% static 'ravenclaw.jpg' %}" />
+
+
+                <h3 class="gryffindor">TEAM-GRYFFINDOR</h3>
+                <h1 class="friday-jul-7">SUNDAY AUG 6</h1>
+
+                <h2 class="pm">8:00 PM</h2>
+                <h2 class="slytherin">TEAM-RAVENCLAW</h2></div>
+                <div class="rectangle-div"></div>
+              <div class="watchbutton">
+
+              <a href="#" class="mingcutevideo-fill">
+                <img class="group-icon" alt="" src="{% static 'youtube.svg' %}' %}" />
+              </a><h3 class="watch">WATCH</h3></div>
+            </div>
+
+          </div>
+          <div class="carousel-item">
+            <div class="desktop-1">
+              <div class="group1"> <img class="desktop-1-inner" alt="" src="{% static './gryffindor.jpg' %}">
+
+                <img class="ellipse-icon" alt="" src="{% static './ravenclaw.jpg' %}" />
+
+
+                <h3 class="gryffindor">TEAM-GRYFFINDOR</h3>
+                <h1 class="friday-jul-7">FRIDAY JUL 7</h1>
+
+                <h2 class="pm">8:00 PM</h2>
+                <h2 class="slytherin">TEAM-RAVENCLAW</h2></div>
+                <div class="rectangle-div"></div>
+              <div class="watchbutton">
+
+              <a href="#" class="mingcutevideo-fill">
+                <img class="group-icon" alt="" src="{% static './youtube.svg' %}" />
+              </a><h3 class="watch">WATCH</h3>
+            </div>
+
+          </div>
+         </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev" class="match">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next" class="match">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+
+
+    <section class="desktop-11 " >
+      <div class="quidditch-accessories-parent">
+        <a href="#">
+        <h1 class="quidditch-accessories">Quidditch Accessories
+        </h1></a>
+        <h1 class="the-golden-snitch-container">
+          <p class="the">The</p>
+          <p class="the">Golden</p>
+          <p class="the">Snitch</p>
+        </h1>
+        <h2 class="h2">$100</h2>
+
+        <button class="group-child animatecart" onclick="addtocart()"></button>
+        <a href="{% url 'store' %}" class="add-to-cart  ">Add to Cart</a>
+      </div>
+
+      <div class="desktop-11-child"></div>
+      <img
+        class="costume-removebg-preview-1-icon"
+        alt=""
+        src="{% static './costume-removebg-preview (1).png' %}"
+      />
+
+      <h3 class="uniform">Uniform</h3>
+      <h3 class="h3">$50</h3>
+      <a href="#" class="phplus-fill2" target="_blank">
+        <img class="vector-icon" alt="" src="{% static './cart-plus-fill.svg' %}" />
+      </a>
+
+      <div class="desktop-11-item"></div>
+      <a href="#" class="phplus-fill" target="_blank">
+        <img class="vector-icon" alt="" src="{% static './cart-plus-fill.svg' %}" />
+      </a>
+
+      <div class="desktop-11-inner"></div>
+
+      <a href="#" class="phplus-fill1" target="_blank">
+        <img class="vector-icon" alt="" src="{% static './cart-plus-fill.svg' %}" />
+      </a>
+
+
+      <h3 class="glasses">Glasses</h3>
+      <h3 class="h31">$50</h3>
+      <h3 class="nimbus-2004">Nimbus 2000</h3>
+      <h3 class="h32">$50</h3>
+      <img
+        class="glass-removebg-preview-1-icon"
+        alt=""
+        src="{% static './glass-removebg-preview (1).png' %}"
+      />
+
+      <img
+        class="broom-removebg-preview-1-icon"
+        alt=""
+        src="{% static './broom-removebg-preview (1).png' %}"
+      />
+
+
+      <img
+        class="snitch-removebg-preview-2-icon"
+        alt=""
+        src="{% static './Untitled – Figma - Google Chrome 08-07-2023 10_28_02.png' %}"
+      />
+
+    </section>
+    <section>
+
+      <div class="slide-container swiper ">
+       <h2 class="highlight">HIGHLIGHTS</h2>
+        <div class="slide-content">
+          <div class="card-wrapper swiper-wrapper">
+            <div class="card swiper-slide">
+              <div class="image-content">
+
+                <div class="card-image">
+
+                  <iframe class="card-img"  width="560" height="321.6" src="https://www.youtube.com/embed/OiRMhtbscww" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+              </div>
+
+            </div>
+            <div class="card swiper-slide">
+              <div class="image-content">
+
+                <div class="card-image">
+
+                  <iframe class="card-img" width="560" height="321.6" src="https://www.youtube.com/embed/2dsR11BvPw8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+              </div>
+
+            </div> <div class="card swiper-slide">
+              <div class="image-content">
+
+                <div class="card-image">
+
+                  <iframe class="card-img" width="560" height="321.6" src="https://www.youtube.com/embed/3ucXmCqe8q8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+              </div>
+
+            </div> <div class="card swiper-slide">
+              <div class="image-content">
+
+                <div class="card-image">
+
+                  <iframe class="card-img" width="560" height="321.6" src="https://www.youtube.com/embed/CpXp1L7xB4o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+              </div>
+
+            </div> <div class="card swiper-slide">
+              <div class="image-content">
+
+                <div class="card-image">
+
+                  <iframe class="card-img" width="560" height="321.6" src="https://www.youtube.com/embed/rmB8ALhdw9I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+              </div>
+
+            </div> <div class="card swiper-slide">
+              <div class="image-content">
+
+                <div class="card-image">
+
+                  <iframe class="card-img" width="560" height="321.6" src="https://www.youtube.com/embed/thL8QAsPhK0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-next swiper-navBtn " ></div>
+        <div class="swiper-button-prev swiper-navBtn" ></div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </section>
+
+
+
+
+    <footer>
+      <div class="container end">
+        <footer class="py-5">
+          <div class="row ">
+
+           <div class="col-2">
+                    <h5><a href="{% url 'home' %}" class="nav-link p-0 text-muted home">Home</a></h5></div>
+                    <div class="col-2">
+                      <h5><a href="{% url 'schedule' %}" class="nav-link p-0 text-muted schedule">Schedule</a></h5></div>
+                      <div class="col-2">
+                        <h5><a href="{% url 'ticket' %}" class="nav-link p-0 text-muted statistics">Book Tickets</a></h5></div>
+                        <div class="col-2">
+                          <h5><a href="{% url 'home' %}" class="nav-link p-0 text-muted standings">Standings</a></h5></div>
+                          <div class="col-2">
+                            <h5><a href="{% url 'store' %}" class="nav-link p-0 text-muted history">Store</a></h5></div>
+
+
+
+            <div class="col-4 offset-1">
+              <form>
+
+                <div class="d-flex w-100 gap-2">
+                  <label for="newsletter1" class="visually-hidden">Email address</label>
+                  <input id="newsletter1" type="text" class="form-control" placeholder="Email address" fdprocessedid="prywv9m">
+                  <button class="btn btn-primary" type="button" fdprocessedid="zyuvs5">Subscribe</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+
+        </footer>
+      </div>
+    </footer>
+
+
+
+
+</body>
+<script src="{% static 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js' %}"></script>
+<script src="{% static 'cdn.jsdelivr.net_npm_swiper@10.0.4_swiper-bundle.min.js' %}"></script>
+<script src="{% static 'index.js' %}"></script>
+</html>

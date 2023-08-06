@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <!-- Your existing head content here -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create your own team</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        /* Your existing CSS styles here */
+        /* ... */
+
+    header {
+    background-image: url('{% static "quidditch-team-generic-qtta-illustrated.jpg" %}');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 650px;
+    background-position:center;
+    margin-top: -7rem;
+}
+.display-4 {
+    font-size: 6.5rem;
+    margin-top: 206px;
+
+}
+body {
+color: #404E67;
+background: #ffffff;
+font-family: 'Open Sans', sans-serif;
+}
+.table-wrapper {
+width: 700px;
+margin: 30px auto;
+background: #fff;
+padding: 20px;
+box-shadow: 0 1px 1px rgba(0,0,0,.05);
+margin-top: 68px;
+}
+.table-title {
+padding-bottom: 10px;
+margin: 0 0 10px;
+}
+.table-title h2 {
+margin: 6px 0 0;
+font-size: 22px;
+}
+.table-title .add-new {
+float: right;
+height: 30px;
+font-weight: bold;
+font-size: 12px;
+text-shadow: none;
+min-width: 100px;
+border-radius: 50px;
+ line-height: 13px;
+}
+.table-title .add-new i {
+margin-right: 4px;
+}
+table.table {
+table-layout: fixed;
+}
+table.table tr th, table.table tr td {
+border-color: #e9e9e9;
+}
+table.table th i {
+font-size: 13px;
+margin: 0 5px;
+cursor: pointer;
+}
+table.table th:last-child {
+width: 100px;
+}
+table.table td a {
+cursor: pointer;
+display: inline-block;
+margin: 0 5px;
+min-width: 24px;
+}
+table.table td a.add {
+color: #27C46B;
+}
+table.table td a.edit {
+color: #FFC107;
+}
+table.table td a.delete {
+color: #E34724;
+}
+table.table td i {
+font-size: 19px;
+}
+table.table td a.add i {
+font-size: 24px;
+margin-right: -1px;
+position: relative;
+top: 3px;
+}
+table.table .form-control {
+height: 32px;
+line-height: 32px;
+box-shadow: none;
+border-radius: 2px;
+}
+table.table .form-control.error {
+border-color: #f50000;
+}
+table.table td .add {
+display: none;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+#myBtn{
+  background-color: #5bc0de;
+  color: white;
+  border-color: #5bc0de;
+  width: 95.2px;
+}
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+footer{
+    background-color: #1d1d1d;
+    width: 1490px;
+    margin-left: -178px;
+  }
+  .offset-1 {
+    margin-left: 72.333333%;
+  margin-top: 3%;}
+  @media(max-width:768px){
+    .row{
+      display: flex;
+      flex-direction: column;
+    }
+    .offset-1{
+      margin-left: 50%;
+    }
+    .form-control{
+      width: -3%;
+    }
+  }
+  @media(max-width:566px){
+    .col-2{
+      margin-right: 3%;
+    }
+  }
+  .col-2{
+    margin-left: 38px;
+  }
+  .text-muted{
+    color: white!important;
+  }
+
+
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+$('[data-toggle="tooltip"]').tooltip();
+var actions = $("table td:last-child").html();
+// Append table with add row form on add new button click
+$(".add-new").click(function(){
+$(this).attr("disabled", "disabled");
+var index = $("table tbody tr:last-child").index();
+var row = '<tr>' +
+'<td><input type="text" class="form-control" name="name" id="name"></td>' +
+'<td><input type="text" class="form-control" name="department" id="department"></td>' +
+/*'<td><input type="text" class="form-control" name="phone" id="phone"></td>' +*/
+'<td>' + actions + '</td>' +
+'</tr>';
+$("table").append(row);
+$("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
+$('[data-toggle="tooltip"]').tooltip();
+});
+// Add row on add button click
+$(document).on("click", ".add", function(){
+var empty = false;
+var input = $(this).parents("tr").find('input[type="text"]');
+input.each(function(){
+if(!$(this).val()){
+$(this).addClass("error");
+empty = true;
+} else{
+$(this).removeClass("error");
+}
+});
+$(this).parents("tr").find(".error").first().focus();
+if(!empty){
+input.each(function(){
+$(this).parent("td").html($(this).val());
+});
+$(this).parents("tr").find(".add, .edit").toggle();
+$(".add-new").removeAttr("disabled");
+}
+});
+// Edit row on edit button click
+$(document).on("click", ".edit", function(){
+$(this).parents("tr").find("td:not(:last-child)").each(function(){
+$(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
+});
+$(this).parents("tr").find(".add, .edit").toggle();
+$(".add-new").attr("disabled", "disabled");
+});
+// Delete row on delete button click
+$(document).on("click", ".delete", function(){
+$(this).parents("tr").remove();
+$(".add-new").removeAttr("disabled");
+});
+});
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </style>
+</head>
+<body>
+    <section>
+
+          <!-- Your navigation content here -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light color">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="{% url 'home' %}"><img src="/static/quid.jpeg" alt="" width="80" height="40"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                  </li>
+
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Teams
+                    </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="{% url 'gryffindor_team' %}">GRYFFINDOR</a></li>
+
+                     <li><a class="dropdown-item" href="{% url 'slytherin_team' %}">SLYTHERIN</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="{% url 'hufflepuff_team' %}">HUFFLEPUFF</a></li>
+                      <li><a class="dropdown-item" href="{% url 'ravenclaw_team' %}">RAVENCLAW</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'schedule' %}">Schedule</a>
+                  </li>
+
+
+
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Book Tickets
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="{% url 'ticket' %}">Single Game</a></li>
+                      <li><a class="dropdown-item" href="{% url 'ticket' %}">Group Ticket</a></li>
+
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="store.html">Store</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Other
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                      <li><a class="dropdown-item" href="#">Standings</a></li>
+                      <li><hr class="dropdown-divider"></li>
+
+                    </ul>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login/Register</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'register_team' %}">Register Your Team</a>
+                    </li>
+
+
+                </ul>
+
+              </div>
+            </div>
+          </nav>
+
+    </section>
+    <header class="bg-dark py-5">
+      <!-- Your existing header content here -->
+      <div class="container px-4 px-lg-5 my-5">
+
+      </div>
+  </header>
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2>Create your own <b>Team</b></h2></div>
+                    <div class="col-sm-4">
+                        <form method="post">
+                            {% csrf_token %}
+                            <label for="team_name">Team Name:</label>
+                            <input type="text" id="team_name" name="team_name" required>
+                            <button type="submit" class="btn btn-info add">Create Team</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Harry Potter</td>
+                        <td>Seeker</td>
+                        <td>
+                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                    <!-- Add more player rows here -->
+                    <!-- ... -->
+                    <tr>
+                      <td>Harry Potter</td>
+                      <td>Seeker</td>
+                      <td>
+                          <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                          <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                          <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                      </td>
+                  </tr>
+                  <tr>
+                    <td>Harry Potter</td>
+                    <td>Seeker</td>
+                    <td>
+                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                    </td>
+                </tr>
+                <tr>
+                  <td>Harry Potter</td>
+                  <td>Seeker</td>
+                  <td>
+                      <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                      <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                      <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                  </td>
+              </tr>
+              <tr>
+                <td>Harry Potter</td>
+                <td>Seeker</td>
+                <td>
+                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                </td>
+            </tr>
+            <tr>
+              <td>Harry Potter</td>
+              <td>Seeker</td>
+              <td>
+                  <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                  <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                  <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+              </td>
+          </tr>
+          <tr>
+            <td>Harry Potter</td>
+            <td>Seeker</td>
+            <td>
+                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+            </td>
+        </tr>
+                </tbody>
+            </table>
+            <button id="myBtn" type="button">Register</button>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="modalBox" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Woohoo!!</p>
+            <p>You have successfully registered your <b>Team</b></p>
+        </div>
+    </div>
+
+    <footer>
+      <div class="container end">
+        <footer class="py-5">
+          <div class="row ">
+
+           <div class="col-2">
+                    <h5><a href="{% url 'home' %}" class="nav-link p-0 text-muted home">Home</a></h5></div>
+                    <div class="col-2">
+                      <h5><a href="{% url 'schedule' %}" class="nav-link p-0 text-muted schedule">Schedule</a></h5></div>
+                      <div class="col-2">
+                        <h5><a href="#" class="nav-link p-0 text-muted statistics">Book Tickets</a></h5></div>
+                        <div class="col-2">
+                          <h5><a href="#" class="nav-link p-0 text-muted standings">Standings</a></h5></div>
+                          <div class="col-2">
+                            <h5><a href="{% url 'store' %}" class="nav-link p-0 text-muted history">Store</a></h5></div>
+
+
+
+            <div class="col-4 offset-1">
+              <form>
+
+                <div class="d-flex w-100 gap-2">
+                  <label for="newsletter1" class="visually-hidden">Email address</label>
+                  <input id="newsletter1" type="text" class="form-control" placeholder="Email address" fdprocessedid="prywv9m">
+                  <button class="btn btn-primary" type="button" fdprocessedid="zyuvs5">Subscribe</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+
+        </footer>
+      </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const playersData = [];
+
+        function updateRegisterButtonStatus() {
+            const registerButton = document.getElementById('registerBtn');
+            if (playersData.length > 0) {
+                registerButton.disabled = false;
+            } else {
+                registerButton.disabled = true;
+            }
+        }
+
+        function closeModal() {
+            const modalBox = document.getElementById('modalBox');
+            modalBox.style.display = 'none';
+        }
+
+        function createTeam() {
+            const teamName = document.getElementById('team_name').value;
+            // Send the teamName to the server using AJAX or fetch API to create the team in the database
+            // You can use Django views and models to handle the team creation on the server-side
+            // Once the team is created, you can enable the "Register" button
+            updateRegisterButtonStatus();
+        }
+
+        function registerPlayers() {
+            // Send the playersData to the server using AJAX or fetch API to save in the database
+            // You can use Django views and models to handle the data processing on the server-side
+            // After successful registration, you can show the success popup
+            const modalBox = document.getElementById('modalBox');
+            modalBox.style.display = 'block';
+        }
+
+        function addPlayerRow() {
+            const tableBody = document.querySelector('table tbody');
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td><input type="text" class="form-control" name="name"></td>
+                <td><input type="text" class="form-control" name="department"></td>
+                <td>
+                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                </td>
+            `;
+            tableBody.appendChild(newRow);
+        }
+
+        // Handle "Create Team" button click
+        const createTeamButton = document.querySelector('#teamForm .add');
+        if (createTeamButton) {
+            createTeamButton.addEventListener('click', createTeam);
+        }
+
+        // Handle "Register" button click
+        const registerButton = document.getElementById('registerBtn');
+        if (registerButton) {
+            registerButton.addEventListener('click', registerPlayers);
+        }
+
+        // Handle "Add" player button click
+        const addButton = document.querySelector('.add-new');
+        if (addButton) {
+            addButton.addEventListener('click', function() {
+                addPlayerRow();
+                updateRegisterButtonStatus();
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+        }
+
+        // Handle "Delete" player button click
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('delete')) {
+                const row = event.target.closest('tr');
+                row.remove();
+                updateRegisterButtonStatus();
+            }
+        });
+
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+
+</body>
+</html>

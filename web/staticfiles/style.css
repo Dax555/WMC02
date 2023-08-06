@@ -1,0 +1,1009 @@
+.btn-outline-success {
+  --bs-btn-color: #000000;
+  --bs-btn-border-color: #000000;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #000000;
+  --bs-btn-hover-border-color: #000000;}
+.bg1{
+    background-image: url('/static/quidditch-3.jpg');
+}
+.bg2{
+    background-image: url('/static/57d2c4348f89f51c008b4576.webp');
+}
+.bg3{
+    background-image: url('/static/main\ page.jpg');
+    /*height: 671.04px!important;*/
+
+}
+.carousel-item{
+    height: 90vh;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.caption1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+h1{
+    margin-top: 35vh;
+    color: white;
+    font-family: 'Magic School One Regular';
+    font-size: 120px;
+}
+@font-face {
+  font-family:'Magic School One Regular';
+  src: url("./fonts/MagicSchoolOne-ovYz.ttf");}
+
+.row1{
+  margin-top: 3rem;
+}
+.third{
+  margin-left: 5rem;
+}
+.second{
+  margin-right: 5rem;
+}
+
+
+.p-4{
+  background-color: #F0F0F0;
+}
+
+
+
+  #carouselExampleControls{
+    margin-top: 3rem;
+    height: 309px!important;
+
+  }
+  .in{
+    height: 309px;
+  }
+  .match{
+    height: 309px;
+  }
+
+  .group1{
+    position: relative;
+    display: flex;
+    height: 236px;
+    top: 6%;
+  }
+  .desktop-1-inner,
+  .ellipse-icon {
+    position: absolute;
+    left: 20%;
+    border-radius: 50%;
+    width: 165px;
+    height: 165px;
+    object-fit: cover;
+  }
+  .ellipse-icon {
+    left: 70%;
+  }
+
+  .friday-jul-7,
+  .gryffindor,.slytherin,.pm {
+    color: white;
+    margin: 0;
+    position: absolute;
+    font-size: inherit;
+    font-weight: 400;
+    font-family: inherit;
+  }
+  .slytherin,.gryffindor {
+    top: 73%;
+    left: 21.5%;
+    font-size: inherit;
+    font-family: inherit;
+  }
+  .slytherin{
+    left: 72.5%;
+  }
+  .friday-jul-7 {
+    left: 40%;
+    font-size: 49px;
+  }
+  .pm,
+  .watch {
+    font-size: 30px;
+    font-family: inherit;
+  }
+
+  .pm {
+    color: white;
+    top: 50%;
+    left: 45%
+  }
+  @media(max-width:928px){
+    .desktop-1-inner,
+  .ellipse-icon {
+    width: 70px;
+    height: 70px;
+  }
+  .ellipse-icon{
+    left: 20.5%;
+    top: 34%;
+    width: 60px;
+    height: 60px;
+  }
+  .gryffindor{
+    top: 10%;
+    left: 30.5%;
+    font-size: 25px;
+  }
+  .slytherin{
+    left: 30.5%;
+    top: 40%;
+    font-size: 25px;
+
+  }
+  .friday-jul-7,.pm{
+    font-size: 30px;
+    top: 74%;
+    left: 37%;
+   transform: translate(-50%,-50%);
+  }
+  .pm{
+    left: 62%;
+  }
+
+  }
+  @media(max-width:765px){
+    .desktop-1-inner,.ellipse-icon{
+      left: 6%;
+    }
+    .gryffindor,.slytherin{
+      font-size: 20px;
+      left: 20%;
+    }
+  }
+  @media(max-width:765px){
+    .pm{
+      left: 67%;
+    }
+  }
+  @media(max-width:765px){
+    .gryffindor,.slytherin{
+
+      left: 25%;
+    }
+    .pm{
+      left: 72%;
+    }
+  }
+  @media(max-width:461px){
+    .pm{
+      left: 76%;
+    }
+  }
+  @media(max-width:376px){
+  .gryffindor,.slytherin{
+    font-size: 20px;
+    left: 32%;
+  }
+  .friday-jul-7{
+    left: 31%;
+  }}
+  .rectangle-div {
+    position: absolute;
+    top: 236px;
+    background-color:#616161;
+    width: 100%;
+    height: 73px;
+  }
+  .group-icon,
+  .mingcutevideo-fill {
+    position: absolute;
+    overflow: hidden;
+  }
+  .group-icon {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .watchbutton{
+    display: flex;
+    position: relative;
+    top: 12%;
+    left: 91%;
+    transform: translate(-50%,-50%);
+  }
+  .watch {
+    margin: 0;
+    font-weight: 400;
+    color: #000;
+
+  }
+  .mingcutevideo-fill {
+    position: relative;
+    text-decoration: none;
+
+    width: 59px;
+    height: 43px;
+
+  }
+
+  .desktop-1{
+
+    position: relative;
+    background-color: black;
+    width: 100%;
+    height: 309px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-7xl);
+    color: var(--color-white);
+    font-family: var(--font-lalezar);
+  }
+  .quidditch-accessories {
+    color: #000;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 1.17px;
+    font-size: 50px;
+    font-weight: 400;
+    font-family: inherit;
+    white-space: pre-wrap;
+    display: flex;
+    width: 532.83px;
+    height: 45.19px;
+
+  }
+  .the {
+    margin: 0;
+  }
+  .the-golden-snitch-container {
+    margin: 0;
+    position: absolute;
+    top: 54.61px;
+    left: 0;
+    font-size: 60px;
+    font-weight: 400;
+    font-family: inherit;
+    color: #e6bf7e;
+    display: inline-block;
+    width: 357.96px;
+    height: 287.18px;
+  }
+  .group-child,
+  .h2 {
+    position: absolute;
+    top: 280px;
+  }
+  .h2 {
+
+    margin: 0;
+    left: 7px;
+    font-size: 45px;
+    font-weight: 400;
+    font-family: inherit;
+    display: flex;
+    width: 102.11px;
+    height: 38.6px;
+  }
+  .group-child {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: rgba(241, 241, 241, 0.99);
+    left: 150px;
+    border-radius: 36.14px;
+    box-shadow: 5px 9px 22px rgba(0, 0, 0, 0.11);
+    width: 177px;
+    height: 50px;
+  }
+  .add-to-cart {
+    text-decoration: none;
+    position: absolute;
+    top: 290px;
+    left: 191px;
+    font-size: 18px;
+    color: inherit;
+    display: flex;
+    width: 100px;
+    height: 21px;
+  }
+  .quidditch-accessories-parent {
+    position: absolute;
+    top: 63px;
+    left: 99px;
+    width: 534px;
+    height: 341.79px;
+    font-size: 27px;
+  }
+  .desktop-11-child {
+    position: absolute;
+    top: 452px;
+    left: 128px;
+    border-radius: 18.37px;
+    background-color: #d8d8d8;
+    width: 292px;
+    height: 161px;
+  }
+  .costume-removebg-preview-1-icon {
+    position: absolute;
+    top: 411px;
+    left: 150px;
+    width: 158px;
+    height: 132px;
+    object-fit: cover;
+
+  }
+  .h3,
+  .uniform {
+    margin: 0;
+    position: absolute;
+    left: 319px;
+    font-weight: 400;
+    font-family: inherit;
+
+  }
+  .uniform {
+    top: 509px;
+    font-size: 20px;
+  }
+  .h3 {
+    top: 543px;
+    font-size: 15px;
+  }
+  .desktop-11-item {
+    position: absolute;
+    top: 448px;
+    left: 904px;
+    border-radius: 18.37px;
+    background-color:  #d8d8d8;
+    width: 292px;
+    height: 161px;
+  }
+  .phplus-fill,
+  .vector-icon {
+    position: absolute;
+    overflow: hidden;
+  }
+  .vector-icon {
+    height: 75%;
+    width: 75%;
+    top: 12.5%;
+    right: 12.5%;
+    bottom: 12.5%;
+    left: 12.5%;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .phplus-fill {
+    text-decoration: none;
+    top: 533px;
+    left: 1152px;
+    width: 89px;
+    height: 91px;
+  }
+  .desktop-11-inner {
+    position: absolute;
+    top: 452px;
+    left: 508px;
+    border-radius: 18.37px;
+    background-color: #d8d8d8 ;
+    width: 292px;
+    height: 161px;
+  }
+  .phplus-fill1,
+  .phplus-fill2 {
+    text-decoration: none;
+    position: absolute;
+    top: 531px;
+    left: 731px;
+    width: 89px;
+    height: 91px;
+    overflow: hidden;
+  }
+  .phplus-fill2 {
+    top: 535px;
+    left: 346px;
+  }
+  .glasses {
+    margin: 0;
+    position: absolute;
+    top: 508px;
+    left: 654px;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: inherit;
+  }
+  .h31 {
+    top: 543px;
+    left: 654px;
+    font-size: 15px;
+  }
+  .h31,
+  .h32,
+  .nimbus-2004 {
+    margin: 0;
+    position: absolute;
+    font-weight: 400;
+    font-family: inherit;
+  }
+  .nimbus-2004 {
+    top: 508px;
+    left: 1015px;
+    font-size: 20px;
+  }
+  .h32 {
+    top: 543px;
+    left: 1027px;
+    font-size: 15px;
+  }
+  .glass-removebg-preview-1-icon {
+    position: absolute;
+    top: 429px;
+    left: 485px;
+    width: 137px;
+    height: 92px;
+    object-fit: cover;
+  }
+  .broom-removebg-preview-1-icon
+  {
+    position: absolute;
+    top: 420px;
+    left: 860.16px;
+    width: 205px;
+    height: 189px;
+    object-fit: cover;
+  }
+  .snitch-removebg-preview-2-icon {
+    position: absolute;
+    top: 0;
+    left: 915px;
+    width: 427px;
+    height: 449.1px;
+    margin-left: 10rem;
+    object-fit: cover;
+  }
+  .desktop-11 {
+    position: relative;
+    border-radius: 55px;
+    background-color: #f0f0f0;
+    border: 1px solid #fffdfd;
+    box-sizing: border-box;
+    width: 100%;
+    height: 624px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-6xl);
+    color: var(--color-black);
+    font-family: var(--font-junge);
+    margin-top: 3rem;
+
+
+  }
+
+
+  footer{
+    background-color: #1f1f1f;
+  }
+  .offset-1 {
+    margin-left: 72.333333%;
+  margin-top: 3%;}
+  @media(max-width:768px){
+    .row{
+      display: flex;
+      flex-direction: column;
+    }
+    .offset-1{
+      margin-left: 50%;
+    }
+    .form-control{
+      width: -3%;
+    }
+  }
+  @media(max-width:566px){
+    .col-2{
+      margin-right: 3%;
+    }
+  }
+
+  h5{
+    color: #f0f0f0;
+  }
+  .quotes{
+    font-family: 'Fasthand', cursive;
+    font-size:25px;
+  }
+  .end{
+    margin-top: 3rem;
+  }
+  .highlight{
+    font-size: 3rem;
+    color: white;
+    margin-left: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .card{
+    padding-bottom:10px ;
+  }
+
+  .image-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 14px;
+    padding-top: 0;
+
+  }
+  .card-image{
+    position: relative;
+    height: 300px;
+    width: 453.33px;
+
+  }
+  .card-image.card-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  .slide-container{
+    max-width: 1490px;
+    width: 100%;
+    background-color: #000000;
+    padding: 40px 0;
+    margin-top: 3rem;
+     display: flex;
+
+     justify-content: center;
+
+
+
+  }
+  .slide-content{
+    margin: 0 40px;
+    overflow: hidden;
+  }
+  .swiper-navBtn{
+   color: white!important;
+    transition: color 0.3s ease;
+
+  }
+
+  .swiper-navBtn:hover{
+    color: #ffffff36!important;
+  }
+  .swiper-navBtn::before,
+  .swiper-navBtn::after{
+   font-size: 40px;
+  }
+  .swiper-button-next{
+    right: 0;
+  }
+  .swiper-button-prev{
+    left: 0;
+  }
+
+  .swiper-pagination-bullet{
+    background-color: #ffffff!important;
+    opacity: 1;
+  }
+  .swiper-pagination-bullet-active{
+    background-color: #453f3f;
+
+  }
+  @media screen and (max-width:768px) {
+    .slide-content{
+      margin: 0 10px;
+    }
+    .swiper-navBtn{
+      display: none;
+    }
+  }
+ .h-100 {
+    height: 98%!important;
+
+}
+.col-md-7{
+  position: relative;
+}
+  #myVideo {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 300px;
+  }
+
+
+
+    .news{
+      margin: 3rem;
+    }
+    .newcontent{
+      padding: 0;
+      font-size: 20px;
+      background-color: #f1f1f1;
+
+
+    }
+    @media(max-width:1023px){
+      .col-md-7,.col-md-5{
+        width: 100%;
+      }
+    }
+    @media(max-width:540px){
+      .newcontent{
+        margin:0;
+      }
+    }
+
+
+    @media(max-width:450px){
+      .col-md-7,.col-md-5{
+        width: 250%;
+
+      }
+      .news{
+        margin: 1rem;
+      }
+
+    }
+    @media(max-width:1399px){
+      .snitch-removebg-preview-2-icon{
+        left: 675px;
+        height: 369.1px;
+      }
+
+
+
+      }
+ @media(max-width:1241px){
+    .snitch-removebg-preview-2-icon{
+      left: 542px;
+      height: 394.1px;
+    }
+    .desktop-11-child{
+      left: 26px;
+    }
+     .h3,.uniform {
+      left: 50px;
+     }
+      .phplus-fill2{
+        left: 245px;
+      }
+      .desktop-11-inner{
+        left: 349px;
+      }
+      .glasses,.h31{
+        left: 398px;
+      }
+      .phplus-fill1{
+        left: 565px;
+      }
+      .desktop-11-item{
+        left: 672px;
+      }
+      .nimbus-2004,.h32{
+        left: 715px;
+      }
+      .phplus-fill{
+        left: 885px;
+      }
+      .broom-removebg-preview-1-icon{
+        left: 768px;
+      }
+    }
+    @media(max-width:1100px){
+      .snitch-removebg-preview-2-icon{
+        left: 504px;
+      }
+    }
+    @media(max-width:1024px){
+      .snitch-removebg-preview-2-icon{
+        left: 425px;
+      }
+    }
+    @media(max-width:978px){
+      .quidditch-accessories-parent{
+        left: 16px;
+      }
+      .snitch-removebg-preview-2-icon{
+        left: 345px;
+        height: 394.1px;
+      }
+      .costume-removebg-preview-1-icon{
+        left: 94px;
+        width: 129px;
+      }
+      .desktop-11-child{
+        left: 23px;
+        width: 219px;
+      }
+       .h3,.uniform {
+        left: 50px;
+       }
+        .phplus-fill2{
+          left: 167px;
+        }
+        .desktop-11-inner{
+          left: 261px;
+          width: 219px;
+        }
+        .glass-removebg-preview-1-icon{
+          left: 261px;
+        }
+        .glasses,.h31{
+          left: 398px;
+        }
+        .phplus-fill1{
+          left: 414px;
+        }
+        .desktop-11-item{
+          left: 500px;
+          width: 219px;
+        }
+        .nimbus-2004,.h32{
+          left: 597px;
+        }
+        .phplus-fill{
+          left: 644px;
+        }
+        .broom-removebg-preview-1-icon{
+          left: 488px;
+        }
+      }
+      @media(max-width:840px){
+        .quidditch-accessories-parent{
+          left: 16px;
+        }
+        .quidditch-accessories{
+          font-size: 33px;
+          width: 328px;
+        }
+        .the-golden-snitch-container{
+          width: 127.95px;
+          height: 141.18px;
+          font-size: 36px;
+        }
+        .h2{
+          font-size: 27px;
+          top: 199px;
+        }
+        .group-child{
+          top: 199px;
+          width: 139px;
+          height: 43px;
+          left: 90px;
+
+        }
+        .add-to-cart{
+          left: 114px;
+          top: 208px;
+        }
+        .snitch-removebg-preview-2-icon{
+          left: 345px;
+          width:  241px;
+          height: 330px;
+        }
+        .costume-removebg-preview-1-icon{
+          left: 94px;
+          width: 129px;
+        }
+        .desktop-11-child{
+          left: 23px;
+          width: 219px;
+        }
+         .h3,.uniform {
+          left: 50px;
+         }
+          .phplus-fill2{
+            left: 167px;
+          }
+          .desktop-11-inner{
+            left: 261px;
+            width: 219px;
+          }
+          .glass-removebg-preview-1-icon{
+            left: 261px;
+          }
+          .glasses,.h31{
+            left: 398px;
+          }
+          .phplus-fill1{
+            left: 414px;
+          }
+          .desktop-11-item{
+            left: 500px;
+            width: 219px;
+          }
+          .nimbus-2004,.h32{
+            left: 597px;
+          }
+          .phplus-fill{
+            left: 644px;
+          }
+          .broom-removebg-preview-1-icon{
+            left: 488px;
+          }
+        }
+        @media(max-width:738px){
+          .snitch-removebg-preview-2-icon{
+            left: 177px;
+          }
+          .glasses,.h31{
+            left:313px;
+
+          }
+          .phplus-fill1{
+            left: 414px;
+          }
+          .desktop-11-item{
+            left: 864px;
+
+          }
+          .nimbus-2004,.h32{
+            left: 864px;
+          }
+          .phplus-fill{
+            left: 864px;
+          }
+          .broom-removebg-preview-1-icon{
+            left: 864px;
+          }
+        }
+        @media(max-width:543px){
+          .snitch-removebg-preview-2-icon{
+            left: 103px;
+            width: 192px;
+            height: 225px;
+          }
+          .glasses,.h31{
+            left:313px;
+
+          }
+          .quidditch-accessories{
+            font-size: 25px;
+            width: 249px;
+            height: 45px;
+          }
+          .desktop-11-child{
+            left: 5px;
+          }
+          .desktop-11-inner{
+            left: 250px;
+          }
+          .phplus-fill1{
+            left: 393px;
+          }
+
+        }
+        @media(max-width:543px){
+          .snitch-removebg-preview-2-icon{
+            left: 103px;
+            width: 192px;
+            height: 225px;
+          }
+          .glasses,.h31{
+            left:313px;
+
+          }
+          .quidditch-accessories{
+            font-size: 25px;
+            width: 249px;
+            height: 45px;
+          }
+          .desktop-11-child{
+            left: 21px;
+            width: 165px;
+            height: 161px;
+          }
+          .costume-removebg-preview-1-icon{left: -9px;}
+          .h3,.uniform{
+            left: 97px;
+          }
+          .desktop-11-inner{
+            left: 214px;
+            width: 165px;
+            height: 161px;
+          }
+          .glass-removebg-preview-1-icon{
+            left: 195px;
+          }
+          .phplus-fill1{
+            left: 334px;
+          }
+          .phplus-fill2{
+            left: 118px;
+          }
+
+        }
+        @media(max-width:421px){
+          .quidditch-accessories{
+            font-size: 23px;
+            width: 167px;
+          }
+          .snitch-removebg-preview-2-icon{
+            left: 23px;
+          }
+          .glasses,.h31{
+            left: 243px;
+          }
+          .phplus-fill1{
+            left: 300px;
+          }
+        }
+        @media(max-width:386px){
+         .desktop-11-child{
+          width: 286px;
+         }
+          .glasses,.h31{
+            left: 243px;
+          }
+          .phplus-fill2{
+            left: 224px;
+          }
+          .desktop-11-inner,.glasses,.h31,.phplus-fill1,.glass-removebg-preview-1-icon{
+            left: 864px;
+
+          }
+        }
+        @media(max-width:344px){
+          .desktop-11-child{
+           width: 212px;
+          }
+        .phplus-fill2{
+          left: 157px;
+        }
+      .snitch-removebg-preview-2-icon{
+        left: -26px;
+      }}
+      body {
+
+        overflow-x: hidden;
+      }
+      .teams{
+        height: 350px!important;
+      }
+      @media(max-width:1188px){
+        .third {
+
+          width: 100%;
+          margin-right: 1rem;
+          margin-left: 1rem;
+        }
+        .second{
+          width: 100%;
+          margin-right: 1rem;
+
+        }
+      }
+      @media(max-width:1027px){
+        .col-md-6{
+          width: 98%;
+        }
+        .third {
+
+
+          margin-right: 1rem;
+          margin-left: 1rem;
+        }
+        .second{
+
+          margin-right: 1rem;
+          margin-left: 1rem;
+        }
+      }
+        .text-muted{
+          color: #F0F0F0!important;
+        }
+.pressed{
+  background-color: #7e7e7e!important;
+  opacity: 0.5;
+}
+

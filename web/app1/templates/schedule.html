@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<head>
+<meta charset='utf-8' />
+<script src="{% static 'index.global.js' %}"></script>
+<script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      },
+      initialDate: '2023-07-12',
+      navLinks: true, // can click day/week names to navigate views
+      selectable: true,
+      selectMirror: true,
+      select: function(arg) {
+        var title = prompt('Event Title:');
+        if (title) {
+          calendar.addEvent({
+            title: title,
+            start: arg.start,
+            end: arg.end,
+            allDay: arg.allDay
+          })
+        }
+        calendar.unselect()
+      },
+      eventClick: function(arg) {
+        if (confirm('Are you sure you want to delete this event?')) {
+          arg.event.remove()
+        }
+      },
+      editable: true,
+      dayMaxEvents: true, // allow "more" link when too many events
+      events: [
+        {
+          title: 'Gryffindor vs Slytherin 8 PM',
+          start: '2023-07-24T20:00:00'
+        },
+        {
+          title: 'Hufflepuff vs Ravenclaw',
+          start: '2023-07-27',
+          
+        },
+        {
+          
+          title: 'Gryffindor vs Ravenclaw',
+          start: '2023-08-06'
+        },
+        {
+          groupId: 999,
+          title: 'Repeating Event',
+          start: '2023-01-16T16:00:00'
+        },
+        {
+          title: 'Slytherin vs Hufflepuff',
+          start: '2023-08-16',
+          
+        },
+        {
+          title: 'Meeting',
+          start: '2023-01-12T10:30:00',
+          end: '2023-01-12T12:30:00'
+        },
+        {
+          title: 'Lunch',
+          start: '2023-01-12T12:00:00'
+        },
+        {
+          title: 'Meeting',
+          start: '2023-01-12T14:30:00'
+        },
+        {
+          title: 'Happy Hour',
+          start: '2023-01-12T17:30:00'
+        },
+        {
+          title: 'Dinner',
+          start: '2023-01-12T20:00:00'
+        },
+        {
+          title: 'Birthday Party',
+          start: '2023-01-13T07:00:00'
+        },
+        {
+          title: 'Click for Google',
+          
+          start: '2023-01-28'
+        }
+      ]
+    });
+
+    calendar.render();
+  });
+
+</script>
+<style>
+
+  body {
+    margin: 40px 10px;
+    padding: 0;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+  footer{
+    background-color: #1f1f1f;
+  }
+  .text-muted{
+    color: white!important;
+  }
+  .offset-1 {
+    margin-left: 72.333333%;
+  margin-top: 3%;}
+  @media(max-width:768px){
+    .row{
+      display: flex;
+      flex-direction: column;
+    }
+    .offset-1{
+      margin-left: 50%;
+    }
+    .form-control{
+      width: -3%;
+    }
+  }
+  @media(max-width:566px){
+    .col-2{
+      margin-right: 3%;
+    }
+  }
+
+
+  #calendar {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+</style>
+</head>
+<body>
+  <section>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light color">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}"><img src="/static/quid.jpeg" alt="" width="80" height="40"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+            </li>
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Teams
+              </a>
+              
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{% url 'gryffindor_team' %}">GRYFFINDOR</a></li>
+                    
+               <li><a class="dropdown-item" href="{% url 'slytherin_team' %}">SLYTHERIN</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{% url 'hufflepuff_team' %}">HUFFLEPUFF</a></li>
+                <li><a class="dropdown-item" href="{% url 'ravenclaw_team' %}">RAVENCLAW</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'schedule' %}">Schedule</a>
+            </li>
+            
+            
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Book Tickets
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{% url 'ticket' %}">Single Game</a></li>
+                <li><a class="dropdown-item" href="{% url 'ticket' %}">Group Ticket</a></li>
+                
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'store' %}">Store</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Other
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+               
+                <li><a class="dropdown-item" href="#">Standings</a></li>
+                <li><hr class="dropdown-divider"></li>
+               
+              </ul>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login/Register</a>
+            </li>
+            
+           
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </section>
+  
+
+  <div id='calendar'></div>
+  <footer>
+    <div class="container end">
+      <footer class="py-5">
+        <div class="row ">
+         
+          <div class="col-2">
+            <h5><a href="{% url 'home' %}" class="nav-link p-0 text-muted home">Home</a></h5></div>
+            <div class="col-2">
+              <h5><a href="{% url 'schedule' %}" class="nav-link p-0 text-muted schedule">Schedule</a></h5></div>
+              <div class="col-2">
+                <h5><a href="#" class="nav-link p-0 text-muted statistics">Book Tickets</a></h5></div>
+                <div class="col-2">
+                  <h5><a href="#" class="nav-link p-0 text-muted standings">Standings</a></h5></div>
+                  <div class="col-2">
+                    <h5><a href="store.html" class="nav-link p-0 text-muted history">Store</a></h5></div>
+           
+          
+    
+          <div class="col-4 offset-1">
+            <form>
+              
+              <div class="d-flex w-100 gap-2">
+                <label for="newsletter1" class="visually-hidden">Email address</label>
+                <input id="newsletter1" type="text" class="form-control" placeholder="Email address" fdprocessedid="prywv9m">
+                <button class="btn btn-primary" type="button" fdprocessedid="zyuvs5">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+    
+       
+      </footer>
+    </div>
+  </footer>
+ 
+ 
+</body>
+</html>

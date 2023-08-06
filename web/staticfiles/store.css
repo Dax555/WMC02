@@ -1,0 +1,52 @@
+header{
+  background-image: url('store.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 700px;
+  background-position: bottom;
+  margin-top: -7rem;
+}
+.my-5 {
+  margin-top: 18rem!important;}
+img{
+    height: 280px!important;
+    
+}
+.navbar-logo{
+    height:40px!important ;
+}
+footer{
+    background-color: #1f1f1f;
+  }
+  .offset-1 {
+    margin-left: 72.333333%;
+  margin-top: 3%;}
+  @media(max-width:768px){
+    .row{
+      display: flex;
+      flex-direction: column;
+    }
+    .offset-1{
+      margin-left: 50%;
+    }
+    .form-control{
+      width: -3%;
+    }
+  }
+  @media(max-width:566px){
+    .col-2{
+      margin-right: 3%;
+    }
+  }
+.text-muted{
+    color: white!important;
+}
+@media (max-width: 768px){
+.row {
+    display: flex;
+    flex-direction: row;}}
+@media (max-width: 400px){
+    .row-cols-2>* {
+        flex: 0 0 auto;
+        width: 77%;
+}}
